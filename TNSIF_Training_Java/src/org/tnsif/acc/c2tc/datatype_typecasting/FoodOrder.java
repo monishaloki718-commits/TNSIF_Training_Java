@@ -11,7 +11,7 @@ public class FoodOrder {
 		boolean isDelivered= false;
 		char    rating='A';
 		float   deliveryDistance=5.3f;
-		long    deliveryBoyPhone= 9835365252L;
+		long    deliveryBoyPhone= 9835365252l;
 		byte    deliverTime=45;
 		short   restaurantId=12;
 		
