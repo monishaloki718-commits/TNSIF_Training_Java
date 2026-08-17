@@ -1,91 +1,31 @@
 package org.tnsif.acc.c2tc.interfacedemo;
 
-interface Vehicle
-{
-	public abstract void start();
-	public abstract void stop();
-	final static int Max_speed=120;
-	
-	default void repair()
-	{
-		System.out.println("Vehicle repair is done here");
-	}
-	
-	static void checkMaintaince()
-	{
-		System.out.println("Vehicle maintaince taken care here");
-	}
+
+interface MathOp {
+    int operate(int a, int b);
 }
 
-class Car implements Vehicle
-{
-    private  String model;
-    
-    Car(String model)
-    {
-       this.	model=model;
+class Add implements MathOp {
+    public int operate(int a, int b) {
+        return a + b;
     }
-	
-	
-	@Override
-	public void start() {
-		System.out.println("Car "+ model +" starting");
-		
-		
-	}
-
-	@Override
-	public void stop() {
-		System.out.println("Car "+ model +" stopping");
-		
-	}
-	
-}
-class Bike implements Vehicle
-{
-
-	private String type;
-	
-	Bike(String type)
-	{
-		this.type=type;
-	}
-	@Override
-	public void start() {
-		System.out.println("Bike "+ type +" starting");
-		
-	}
-
-	@Override
-	public void stop() {
-	
-		System.out.println("Bike "+ type +" stopping");
-	}
-	
 }
 
-public class Default_Static_Demo {
+class Sub implements MathOp {
+    public int operate(int a, int b) {
+        return a - b;
+    }
+}
 
-	public static void main(String[] args) {
-		Vehicle car=new Car("Tata Sierro");
-		Vehicle bike=new Bike("Royal Enf");
-		
-		car.start();
-		car.stop();
-		car.repair();
-		System.out.println("-----------");
-		
-		bike.start();
-		bike.stop();
-		bike.repair();
-		
-		System.out.println("-----------");
-		
-		Vehicle.checkMaintaince();
-		
-		System.out.println("Maxspeed "+Vehicle.Max_speed);
-		
-		
-	}
+public class InterfaceDemo2 {
+    public static void main(String[] args) {
 
+        MathOp obj;
+
+        obj = new Add();
+        System.out.println(obj.operate(10, 5));  // 15
+
+        obj = new Sub();
+        System.out.println(obj.operate(10, 5));  // 5
+    }
 }
